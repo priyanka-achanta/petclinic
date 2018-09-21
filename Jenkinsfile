@@ -10,7 +10,7 @@ node
 		sh 'mvn clean package'
 	}
 	stage('Archive1') {
-		archiveArtifacts 'target/*.jar'
+		archiveArtifacts 'target/*.war'
 	}
 	stage('Test Results') {
 		junit 'target/surefire-reports/*.xml'

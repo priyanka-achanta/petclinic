@@ -1,9 +1,9 @@
 node
 {
-		def build_ok = true
-		
+                def build_ok = true
+
         notify('Started')
-		
+
         stage('checkout') {
                 git 'https://github.com/priyanka-achanta/petclinic.git'
         }
@@ -11,32 +11,31 @@ node
         stage('Build') {
                 sh 'mvn clean package'
         }
-		
-		try {
+
+                try {
         stage('Archive1') {
                 archiveArtifacts 'target/*.jar'
         }
-		}
-		catch (err)
-		{
-				build_ok = false
-				notify("Error ${err}")
-				echo e.toString()
-				echo 'archival'
-				currentBuild.result = 'FAILURE'
-		}		
-		
-		
+                }
+                catch (err)
+                {
+                                build_ok = false
+                                notify("Error ${err}")
+                                echo e.toString()
+                                echo 'archival'                                
+                }
+
+
         stage('Test Results') {
                 junit 'target/surefire-reports/*.xml'
         }
         notify('Success')
-		
-	if(build_ok) {
-			currentBuild.result = "SUCCESS"
-	} else {
-			currentBuild.result = "FAILURE"
-	}
+
+        if(build_ok) {
+                        currentBuild.result = "SUCCESS"
+        } else {
+                        currentBuild.result = "FAILURE"
+        }
 }
 def notify(status){
     emailext (

@@ -14,7 +14,7 @@ node
 
                 try {
         stage('Archive1') {
-                archiveArtifacts 'target/*.jar'
+                archiveArtifacts 'target/'
 				currentBuild.result = 'SUCCESS'
         }
                 }

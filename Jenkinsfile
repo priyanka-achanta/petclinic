@@ -31,13 +31,14 @@ node
                 junit 'target/surefire-reports/*.xml'
         }
         notify('Success')
-}	
+	
 		
 		if(build_ok) {
 				currentBuild.result = "SUCCESS"
 		} else {
 				currentBuild.result = "FAILURE"
 		}
+}
 
 def notify(status){
     emailext (

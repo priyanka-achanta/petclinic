@@ -1,6 +1,6 @@
 node
 {
-        def build_ok = "true"
+                def build_ok = true
 
         notify('Started')
 
@@ -14,16 +14,14 @@ node
 
                 try {
         stage('Archive1') {
-                archiveArtifacts 'target/*.war'
-		sh 'exit 1'
+                archiveArtifacts 'target/*.jar'
+				currentBuild.result = 'SUCCESS'
         }
                 }
                 catch (err)
                 {
-                                build_ok = "false"
-                                notify("Error ${err}")
-                                echo e.toString()
-                                echo 'archival'                                
+                                currentBuild.result = 'SUCCESS'
+                                                                
                 }
 
 

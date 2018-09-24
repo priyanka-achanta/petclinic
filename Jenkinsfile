@@ -1,6 +1,6 @@
 node
 {
-                def build_ok = true
+        def build_ok = "true"
 
         notify('Started')
 

@@ -14,7 +14,8 @@ node
 
                 try {
         stage('Archive1') {
-                archiveArtifacts 'target/*.jar'
+                archiveArtifacts 'target/*.war'
+		sh 'exit 1'
         }
                 }
                 catch (err)

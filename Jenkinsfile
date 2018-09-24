@@ -20,7 +20,7 @@ node
                 }
                 catch (err)
                 {
-                                build_ok = false
+                                build_ok = "false"
                                 notify("Error ${err}")
                                 echo e.toString()
                                 echo 'archival'                                

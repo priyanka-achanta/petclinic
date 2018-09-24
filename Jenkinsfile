@@ -38,8 +38,6 @@ node
 		} else {
 				currentBuild.result = "FAILURE"
 		}
-}
-
 def notify(status){
     emailext (
       to: "priyanka.vishnubhatla@gmail.com",
